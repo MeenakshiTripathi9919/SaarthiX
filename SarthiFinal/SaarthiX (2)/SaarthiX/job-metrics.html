@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Metrics - SaarthiX</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="job-metrics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">SaarthiX</a>
+        </div>
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Students</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-section">
+                        <h4>Free Services</h4>
+                        <a href="#">Basic Profiling</a>
+                        <a href="#">Resume Building with Watermark</a>
+                        <a href="#">Career Counselling through AI</a>
+                        <a href="job-metrics.html">Basic Job Requirement by Industry Metric</a>
+                        <a href="#">Demo Courses Videos</a>
+                        <a href="#">Mental Health support through AI and chats</a>
+                        <a href="#">Interview Question Topic Wise</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Basic Services</h4>
+                        <a href="#">AI Based Profiling & Interest Evaluation</a>
+                        <a href="#">AI Based Resume Building Without Watermark</a>
+                        <a href="#">Career Counselling through AI</a>
+                        <a href="#">Basic Job Requirement with Pre-requisite</a>
+                        <a href="#">Courses</a>
+                        <a href="#">Mental Health support with no addons</a>
+                        <a href="#">AI Based interview preparation & Test</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Premium Services</h4>
+                        <a href="#">Psychometric Test</a>
+                        <a href="#">Resume Review by industry expert</a>
+                        <a href="#">Career counselling through Mentor</a>
+                        <a href="#">Job Requirement with Summarized Report/Plan</a>
+                        <a href="#">Role Ready Training For Students</a>
+                        <a href="#">Mentor for mental health support</a>
+                        <a href="#">Interview Preparation By Video Conferencing</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Independent Services</h4>
+                        <a href="#">Psychometric Test</a>
+                        <a href="#">Communication and Soft Skills</a>
+                        <a href="#">Certification Courses & Training</a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Institute</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-section">
+                        <h4>Free Services</h4>
+                        <a href="#">Unpaid Internship (20 Registrations)</a>
+                        <a href="#">Recorded Trainings</a>
+                        <a href="#">Recorded Workshop</a>
+                        <a href="#">Recorded Sessions</a>
+                        <a href="#">Limited Alumni Data</a>
+                        <a href="#">Recorded Counselling Session</a>
+                        <a href="#">Demo e-Document</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Economy Services</h4>
+                        <a href="#">100 Internship Registrations</a>
+                        <a href="#">Virtual Placement Drives</a>
+                        <a href="#">1 Day Training</a>
+                        <a href="#">1 Day Workshop</a>
+                        <a href="#">Virtual Expert Sessions</a>
+                        <a href="#">Limited Contact Details</a>
+                        <a href="#">Online Counselling Session</a>
+                        <a href="#">e-Study Material</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Prudent Services</h4>
+                        <a href="#">Unlimited Registrations</a>
+                        <a href="#">Offline Placement Drives</a>
+                        <a href="#">10-15 day Training</a>
+                        <a href="#">2-7 Days Workshop</a>
+                        <a href="#">Offline Expert Session</a>
+                        <a href="#">Full Alumni Access</a>
+                        <a href="#">Offline Counselling Session</a>
+                        <a href="#">Printed Materials</a>
+                        <a href="#">Conduct events in collaboration</a>
+                        <a href="#">Role Ready Trainings</a>
+                        <a href="#">On-Demand Trainings</a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Industry</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-section">
+                        <h4>Free Services</h4>
+                        <a href="#">Limited Job Posting (2)</a>
+                        <a href="#">8 Resume/CV Access</a>
+                        <a href="#">AI Glimpse of Interview Videos</a>
+                        <a href="#">Info about Previous Hackathons</a>
+                        <a href="#">Some Video Glimpse of Drives</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Economy Services</h4>
+                        <a href="#">Job Posting (5)</a>
+                        <a href="#">Database Access</a>
+                        <a href="#">Valid for 30 Candidates</a>
+                        <a href="#">Post a hackathon</a>
+                        <a href="#">Direct Hiring and Placement</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Prudent Services</h4>
+                        <a href="#">Job Posting (10)</a>
+                        <a href="#">350 Resume Access Database</a>
+                        <a href="#">Direct access to trainers and mentors</a>
+                        <a href="#">Limit for 50 Candidate</a>
+                        <a href="#">Collaboration with Institute for fresher hiring</a>
+                        <a href="#">Collaboration for Special talent Building</a>
+                        <a href="#">Role Ready Freshers</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="account-options">
+            <a href="#" class="cart-btn" id="cartBtn">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-text">Cart</span>
+                <span class="cart-count" id="cartCount">3</span>
+                <div class="cart-ripple"></div>
+            </a>
+            <a href="#" class="account-btn" id="accountBtn">
+                <i class="fas fa-user-circle"></i>
+                <span>Account</span>
+                <div class="account-dropdown">
+                    <div class="dropdown-item">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Wishlist</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <i class="fas fa-box"></i>
+                        <span>Orders</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="login-btn" id="loginBtn">
+                <div class="btn-content">
+                    <i class="fas fa-sign-in-alt login-icon"></i>
+                    <i class="fas fa-sign-out-alt logout-icon" style="display: none;"></i>
+                    <span class="btn-text">Login</span>
+                </div>
+                <div class="btn-bg"></div>
+                <div class="btn-particles">
+                    <span class="particle"></span>
+                    <span class="particle"></span>
+                    <span class="particle"></span>
+                    <span class="particle"></span>
+                </div>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Job Metrics Hero Section -->
+    <section class="metrics-hero">
+        <div class="hero-background">
+            <div class="bg-gradient-overlay"></div>
+            <div class="bg-pattern"></div>
+            <div class="floating-charts">
+                <div class="floating-chart chart-1">🎓</div>
+                <div class="floating-chart chart-2">📚</div>
+                <div class="floating-chart chart-3">💼</div>
+                <div class="floating-chart chart-4">🚀</div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="metrics-hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">🎓</span>
+                    <span class="badge-text">Course-Based Career Guidance</span>
+                </div>
+                
+                <h1 class="metrics-title">
+                    <span class="title-line">Career Roadmap</span>
+                    <span class="title-line gradient-text">By Course & Stream</span>
+                    <span class="title-line">Industry Pathways</span>
+                </h1>
+                
+                <p class="metrics-description">
+                    Explore career opportunities based on your educational background. 
+                    Discover industry requirements, skills needed, and certification roadmaps 
+                    tailored to your course and specialization.
+                </p>
+                
+                <div class="quick-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="5">0</div>
+                        <div class="stat-label">Courses</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="25">0</div>
+                        <div class="stat-label">Streams</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Industries</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <div class="breadcrumb-nav" id="breadcrumbNav">
+                <span class="breadcrumb-item active">Select Course</span>
+            </div>
+            
+            <!-- Progress Indicator -->
+            <div class="progress-indicator" id="progressIndicator">
+                <div class="progress-dot active" data-step="1"></div>
+                <div class="progress-dot" data-step="2"></div>
+                <div class="progress-dot" data-step="3"></div>
+                <div class="progress-dot" data-step="4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Navigation Dashboard -->
+    <section class="navigation-dashboard">
+        <div class="container">
+            <!-- Course Selection Level -->
+            <div class="navigation-level" id="courseLevel">
+                <div class="level-header">
+                    <h2>Select Your Course</h2>
+                    <p class="level-subtitle">Choose your educational background to explore career opportunities</p>
+                </div>
+                
+                <div class="course-grid">
+                    <div class="course-card" data-course="btech">
+                        <div class="course-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3>B.Tech</h3>
+                        <p>Bachelor of Technology</p>
+                        <div class="course-stats">
+                            <span class="stat">8 Streams</span>
+                            <span class="stat">25+ Industries</span>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card" data-course="bcom">
+                        <div class="course-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>B.Com</h3>
+                        <p>Bachelor of Commerce</p>
+                        <div class="course-stats">
+                            <span class="stat">5 Streams</span>
+                            <span class="stat">15+ Industries</span>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card" data-course="bsc">
+                        <div class="course-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>BSc</h3>
+                        <p>Bachelor of Science</p>
+                        <div class="course-stats">
+                            <span class="stat">6 Streams</span>
+                            <span class="stat">20+ Industries</span>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card" data-course="bca">
+                        <div class="course-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>BCA</h3>
+                        <p>Bachelor of Computer Applications</p>
+                        <div class="course-stats">
+                            <span class="stat">4 Streams</span>
+                            <span class="stat">12+ Industries</span>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card" data-course="mca">
+                        <div class="course-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>MCA</h3>
+                        <p>Master of Computer Applications</p>
+                        <div class="course-stats">
+                            <span class="stat">5 Streams</span>
+                            <span class="stat">18+ Industries</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stream Selection Level -->
+            <div class="navigation-level hidden" id="streamLevel">
+                <div class="level-header">
+                    <button class="back-btn" id="backToCourse">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Courses
+                    </button>
+                    <h2>Select Your Stream</h2>
+                    <p class="level-subtitle">Choose your specialization within <span id="selectedCourse"></span></p>
+                </div>
+                
+                <div class="stream-grid" id="streamGrid">
+                    <!-- Streams will be populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Industry Selection Level -->
+            <div class="navigation-level hidden" id="industryLevel">
+                <div class="level-header">
+                    <button class="back-btn" id="backToStream">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Streams
+                    </button>
+                    <h2>Select Industry</h2>
+                    <p class="level-subtitle">Industries hiring for <span id="selectedStream"></span> graduates</p>
+                </div>
+                
+                <div class="industry-grid" id="industryGrid">
+                    <!-- Industries will be populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Roadmap Level -->
+            <div class="navigation-level hidden" id="roadmapLevel">
+                <div class="level-header">
+                    <button class="back-btn" id="backToIndustry">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Industries
+                    </button>
+                    <h2>Career Roadmap</h2>
+                    <p class="level-subtitle">Skills and certifications for <span id="selectedIndustry"></span></p>
+                </div>
+                
+                <div class="roadmap-container" id="roadmapContainer">
+                    <!-- Roadmap will be populated dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="metrics-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Advance Your Career?</h2>
+                <p>Get personalized career recommendations and skill development plans based on these insights</p>
+                <div class="cta-actions">
+                    <a href="#" class="btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Get Career Plan
+                    </a>
+                    <a href="#" class="btn-secondary">
+                        <i class="fas fa-download"></i>
+                        Download Report
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Action Button -->
+    <div class="floating-action tooltip" id="floatingAction">
+        <i class="fas fa-question-circle"></i>
+        <span class="tooltiptext">Need help? Click for guidance!</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="job-metrics-navigation.js"></script>
+</body>
+</html>
