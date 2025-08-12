@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - SaarthiX</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="resume-builder.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Additional styles for template previews */
+        .resume-builder-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .builder-content {
+            display: flex;
+            gap: 30px;
+        }
+
+        .form-section {
+            flex: 1;
+            max-width: 800px;
+        }
+
+        .template-previews-section {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .template-previews-container {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+
+        .template-previews-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .template-previews-header h3 {
+            margin: 0;
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        .template-preview-item {
+            margin-bottom: 25px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .template-preview-item:hover {
+            border-color: #4CAF50;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+        }
+
+        .template-preview-item.active {
+            border-color: #4CAF50;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .template-title {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .template-title:hover {
+            background: #e9ecef;
+        }
+
+        .template-preview-content {
+            padding: 20px;
+            background: #fff;
+            min-height: 400px;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Modern Template Styles */
+        .modern-template {
+            color: #333;
+        }
+
+        .modern-template .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #4CAF50;
+        }
+
+        .modern-template .name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .modern-template .contact {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .modern-template .section {
+            margin-bottom: 20px;
+        }
+
+        .modern-template .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* Classic Template Styles */
+        .classic-template {
+            color: #000;
+        }
+
+        .classic-template .header {
+            margin-bottom: 20px;
+        }
+
+        .classic-template .name {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .classic-template .contact {
+            text-align: center;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .classic-template .section-title {
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            padding-bottom: 3px;
+            border-bottom: 1px solid #000;
+        }
+
+        .classic-template .section {
+            margin-bottom: 18px;
+        }
+
+        /* Creative Template Styles */
+        .creative-template {
+            display: flex;
+            gap: 20px;
+            color: #333;
+        }
+
+        .creative-template .sidebar {
+            width: 35%;
+            background: #2c3e50;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .creative-template .main-content {
+            flex: 1;
+        }
+
+        .creative-template .sidebar .name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .creative-template .sidebar .section-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #ecf0f1;
+        }
+
+        .creative-template .main-content .name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .creative-template .main-content .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #e74c3c;
+        }
+
+        .template-content-item {
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px dotted #ddd;
+        }
+
+        .template-content-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-title {
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .item-subtitle {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .item-description {
+            font-size: 12px;
+            line-height: 1.3;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .skill-tag {
+            background: #e9ecef;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            color: #495057;
+        }
+
+        .creative-template .sidebar .skill-tag {
+            background: #34495e;
+            color: #ecf0f1;
+        }
+
+        @media (max-width: 768px) {
+            .builder-content {
+                flex-direction: column;
+            }
+            
+            .template-previews-section {
+                max-width: 100%;
+            }
+            
+            .template-previews-container {
+                position: relative;
+                top: auto;
+                max-height: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">SaarthiX</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="resume-building-watermark.html">Back to Service</a></li>
+        </ul>
+        <div class="account-options">
+            <a href="#" class="cart-btn" id="cartBtn">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-text">Cart</span>
+                <span class="cart-count" id="cartCount">3</span>
+                <div class="cart-ripple"></div>
+            </a>
+            <a href="#" class="account-btn" id="accountBtn">
+                <i class="fas fa-user-circle"></i>
+                <span>Account</span>
+            </a>
+            <a href="#" class="login-btn" id="loginBtn">
+                <div class="btn-content">
+                    <i class="fas fa-sign-in-alt login-icon"></i>
+                    <span class="btn-text">Login</span>
+                </div>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Resume Builder Container -->
+    <div class="resume-builder-container">
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Personal Info</div>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Experience</div>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Education</div>
+                </div>
+                <div class="progress-step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Skills</div>
+                </div>
+                <div class="progress-step" data-step="5">
+                    <div class="step-number">5</div>
+                    <div class="step-label">Preview</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="builder-content">
+            <!-- Form Section -->
+            <div class="form-section">
+                <div class="form-container">
+                    <!-- Step 1: Personal Information -->
+                    <div class="form-step active" id="step-1">
+                        <h2><i class="fas fa-user"></i> Personal Information</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" id="location" name="location" placeholder="City, State">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="linkedin">LinkedIn Profile</label>
+                                <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="portfolio">Portfolio/Website</label>
+                                <input type="url" id="portfolio" name="portfolio" placeholder="https://yourwebsite.com">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="summary">Professional Summary</label>
+                                <textarea id="summary" name="summary" rows="4" placeholder="Brief overview of your professional background and career objectives..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Work Experience -->
+                    <div class="form-step" id="step-2">
+                        <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+                        <div id="experience-container">
+                            <div class="experience-item">
+                                <div class="item-header">
+                                    <h3>Experience #1</h3>
+                                    <button type="button" class="remove-item" onclick="removeExperience(this)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label>Job Title *</label>
+                                        <input type="text" name="jobTitle" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Company Name *</label>
+                                        <input type="text" name="company" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Start Date *</label>
+                                        <input type="month" name="startDate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>End Date</label>
+                                        <input type="month" name="endDate">
+                                        <div class="checkbox-group">
+                                            <input type="checkbox" name="currentJob" onchange="toggleCurrentJob(this)">
+                                            <label>Currently working here</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group full-width">
+                                        <label>Job Description</label>
+                                        <textarea name="jobDescription" rows="4" placeholder="Describe your key responsibilities and achievements..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addExperience()">
+                            <i class="fas fa-plus"></i> Add Another Experience
+                        </button>
+                    </div>
+
+                    <!-- Step 3: Education -->
+                    <div class="form-step" id="step-3">
+                        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                        <div id="education-container">
+                            <div class="education-item">
+                                <div class="item-header">
+                                    <h3>Education #1</h3>
+                                    <button type="button" class="remove-item" onclick="removeEducation(this)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label>Degree *</label>
+                                        <input type="text" name="degree" required placeholder="e.g., Bachelor of Science">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Field of Study *</label>
+                                        <input type="text" name="fieldOfStudy" required placeholder="e.g., Computer Science">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Institution *</label>
+                                        <input type="text" name="institution" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Graduation Year *</label>
+                                        <input type="number" name="graduationYear" required min="1950" max="2030">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>GPA (Optional)</label>
+                                        <input type="text" name="gpa" placeholder="e.g., 3.8/4.0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Location</label>
+                                        <input type="text" name="eduLocation" placeholder="City, State">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addEducation()">
+                            <i class="fas fa-plus"></i> Add Another Education
+                        </button>
+                    </div>
+
+                    <!-- Step 4: Skills & Additional Information -->
+                    <div class="form-step" id="step-4">
+                        <h2><i class="fas fa-cogs"></i> Skills & Additional Information</h2>
+                        
+                        <!-- Technical Skills -->
+                        <div class="skills-section">
+                            <h3>Technical Skills</h3>
+                            <div class="skills-input-container">
+                                <input type="text" id="technical-skill-input" placeholder="Enter a skill and press Enter">
+                                <div class="skills-tags" id="technical-skills"></div>
+                            </div>
+                        </div>
+
+                        <!-- Soft Skills -->
+                        <div class="skills-section">
+                            <h3>Soft Skills</h3>
+                            <div class="skills-input-container">
+                                <input type="text" id="soft-skill-input" placeholder="Enter a skill and press Enter">
+                                <div class="skills-tags" id="soft-skills"></div>
+                            </div>
+                        </div>
+
+                        <!-- Languages -->
+                        <div class="skills-section">
+                            <h3>Languages</h3>
+                            <div id="languages-container">
+                                <div class="language-item">
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label>Language</label>
+                                            <input type="text" name="language" placeholder="e.g., English">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Proficiency</label>
+                                            <select name="proficiency">
+                                                <option value="">Select Level</option>
+                                                <option value="Native">Native</option>
+                                                <option value="Fluent">Fluent</option>
+                                                <option value="Intermediate">Intermediate</option>
+                                                <option value="Basic">Basic</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="add-item-btn" onclick="addLanguage()">
+                                <i class="fas fa-plus"></i> Add Language
+                            </button>
+                        </div>
+
+                        <!-- Certifications -->
+                        <div class="skills-section">
+                            <h3>Certifications</h3>
+                            <div id="certifications-container">
+                                <div class="certification-item">
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label>Certification Name</label>
+                                            <input type="text" name="certificationName" placeholder="e.g., AWS Certified Solutions Architect">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Issuing Organization</label>
+                                            <input type="text" name="issuingOrg" placeholder="e.g., Amazon Web Services">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Issue Date</label>
+                                            <input type="month" name="issueDate">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Expiry Date</label>
+                                            <input type="month" name="expiryDate">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="add-item-btn" onclick="addCertification()">
+                                <i class="fas fa-plus"></i> Add Certification
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Preview -->
+                    <div class="form-step" id="step-5">
+                        <h2><i class="fas fa-eye"></i> Resume Preview</h2>
+                        <div class="template-selection">
+                            <h3>Choose a Template</h3>
+                            <div class="template-grid">
+                                <div class="template-option active" data-template="modern">
+                                    <div class="template-preview">
+                                        <div class="template-header"></div>
+                                        <div class="template-content">
+                                            <div class="template-line"></div>
+                                            <div class="template-line short"></div>
+                                            <div class="template-line"></div>
+                                        </div>
+                                    </div>
+                                    <span>Modern</span>
+                                </div>
+                                <div class="template-option" data-template="classic">
+                                    <div class="template-preview classic">
+                                        <div class="template-header"></div>
+                                        <div class="template-content">
+                                            <div class="template-line"></div>
+                                            <div class="template-line short"></div>
+                                            <div class="template-line"></div>
+                                        </div>
+                                    </div>
+                                    <span>Classic</span>
+                                </div>
+                                <div class="template-option" data-template="creative">
+                                    <div class="template-preview creative">
+                                        <div class="template-sidebar"></div>
+                                        <div class="template-content">
+                                            <div class="template-line"></div>
+                                            <div class="template-line short"></div>
+                                            <div class="template-line"></div>
+                                        </div>
+                                    </div>
+                                    <span>Creative</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="preview-actions">
+                            <button type="button" class="btn-secondary" onclick="generatePreview()">
+                                <i class="fas fa-eye"></i> Generate Preview
+                            </button>
+                            <button type="button" class="btn-primary" onclick="downloadResume()">
+                                <i class="fas fa-download"></i> Download Resume
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="form-navigation">
+                        <button type="button" class="btn-secondary" id="prevBtn" onclick="changeStep(-1)" style="display: none;">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </button>
+                        <button type="button" class="btn-primary" id="nextBtn" onclick="changeStep(1)">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template Previews Section -->
+            <div class="template-previews-section">
+                <div class="template-previews-container">
+                    <div class="template-previews-header">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Template Previews</h3>
+                    </div>
+                    
+                    <!-- Modern Template Preview -->
+                    <div class="template-preview-item active" data-template="modern">
+                        <div class="template-title" onclick="selectTemplate('modern')">
+                            <span><i class="fas fa-star"></i> Modern Template</span>
+                            <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
+                        </div>
+                        <div class="template-preview-content modern-template" id="modern-preview">
+                            <div class="header">
+                                <div class="name">John Doe</div>
+                                <div class="contact">john.doe@email.com • (555) 123-4567 • New York, NY</div>
+                            </div>
+                            
+                            <div class="section">
+                                <div class="section-title">PROFESSIONAL SUMMARY</div>
+                                <p>Experienced software developer with 5+ years of expertise in full-stack development and team leadership.</p>
+                            </div>
+                            
+                            <div class="section">
+                                <div class="section-title">EXPERIENCE</div>
+                                <div class="template-content-item">
+                                    <div class="item-title">Senior Software Developer</div>
+                                    <div class="item-subtitle">Tech Company Inc. • 2021 - Present</div>
+                                    <div class="item-description">Led development of web applications using React and Node.js, managing a team of 4 developers.</div>
+                                </div>
+                            </div>
+                            
+                            <div class="section">
+                                <div class="section-title">EDUCATION</div>
+                                <div class="template-content-item">
+                                    <div class="item-title">Bachelor of Computer Science</div>
+                                    <div class="item-subtitle">University of Technology • 2019</div>
+                                </div>
+                            </div>
+                            
+                            <div class="section">
+                                <div class="section-title">SKILLS</div>
+                                <div class="skills-list">
+                                    <span class="skill-tag">JavaScript</span>
+                                    <span class="skill-tag">React</span>
+                                    <span class="skill-tag">Node.js</span>
+                                    <span class="skill-tag">Python</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Classic Template Preview -->
+                    <div class="template-preview-item" data-template="classic">
+                        <div class="template-title" onclick="selectTemplate('classic')">
+                            <span><i class="fas fa-file-text"></i> Classic Template</span>
+                            <i class="fas fa-circle" style="color: #ddd;"></i>
+                        </div>
+                        <div class="template-preview-content classic-template" id="classic-preview">
+                            <div class="header">
+                                <div class="name">JOHN DOE</div>
+                                <div class="contact">john.doe@email.com | (555) 123-4567 | New York, NY</div>
+                            </div>
+                            
+                            <div class="section">
+                                <div class="section-title">OBJECTIVE</div>
+                                <p>Experienced software developer with 5+ years of expertise in full-stack development and team leadership.</p>
+                            </div>
+                            
+                            <div class="section">
+                                <div class="section-title">PROFESSIONAL EXPERIENCE</div>
+                                <div class="template-content-item">
+                                    <div class="item-title">Senior Software Developer</div>
+                                    <div class="item-subtitle">Tech Company Inc., New York, NY | 2021 - Present</div>
+                                    <div class="item-description">• Led development of web applications using React and Node.js<br>• Managed a team of 4 developers</div>
+                                </div>
+                            </div>
+                            
+                            <div class="section">
+                                <div class="section-title">EDUCATION</div>
+                                <div class="template-content-item">
+                                    <div class="item-title">Bachelor of Science in Computer Science</div>
+                                    <div class="item-subtitle">University of Technology, 2019</div>
+                                </div>
+                            </div>
+                            
+                            <div class="section">
+                                <div class="section-title">TECHNICAL SKILLS</div>
+                                <p>JavaScript, React, Node.js, Python, SQL, Git</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Creative Template Preview -->
+                    <div class="template-preview-item" data-template="creative">
+                        <div class="template-title" onclick="selectTemplate('creative')">
+                            <span><i class="fas fa-palette"></i> Creative Template</span>
+                            <i class="fas fa-circle" style="color: #ddd;"></i>
+                        </div>
+                        <div class="template-preview-content creative-template" id="creative-preview">
+                            <div class="sidebar">
+                                <div class="name">John Doe</div>
+                                
+                                <div class="section">
+                                    <div class="section-title">CONTACT</div>
+                                    <div style="font-size: 12px;">
+                                        john.doe@email.com<br>
+                                        (555) 123-4567<br>
+                                        New York, NY
+                                    </div>
+                                </div>
+                                
+                                <div class="section">
+                                    <div class="section-title">SKILLS</div>
+                                    <div class="skills-list" style="flex-direction: column; gap: 3px;">
+                                        <span class="skill-tag">JavaScript</span>
+                                        <span class="skill-tag">React</span>
+                                        <span class="skill-tag">Node.js</span>
+                                        <span class="skill-tag">Python</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="section">
+                                    <div class="section-title">LANGUAGES</div>
+                                    <div style="font-size: 12px;">
+                                        English (Native)<br>
+                                        Spanish (Fluent)
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="main-content">
+                                <div class="name">John Doe</div>
+                                <div style="color: #666; margin-bottom: 20px; font-size: 16px;">Senior Software Developer</div>
+                                
+                                <div class="section">
+                                    <div class="section-title">PROFESSIONAL SUMMARY</div>
+                                    <p>Experienced software developer with 5+ years of expertise in full-stack development and team leadership.</p>
+                                </div>
+                                
+                                <div class="section">
+                                    <div class="section-title">EXPERIENCE</div>
+                                    <div class="template-content-item">
+                                        <div class="item-title">Senior Software Developer</div>
+                                        <div class="item-subtitle">Tech Company Inc. • 2021 - Present</div>
+                                        <div class="item-description">Led development of web applications using React and Node.js, managing a team of 4 developers.</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="section">
+                                    <div class="section-title">EDUCATION</div>
+                                    <div class="template-content-item">
+                                        <div class="item-title">Bachelor of Computer Science</div>
+                                        <div class="item-subtitle">University of Technology • 2019</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="services.js"></script>
+    <script src="resume-builder.js"></script>
+    
+    <script>
+        // Template selection functionality
+        function selectTemplate(templateName) {
+            // Remove active class from all template items
+            document.querySelectorAll('.template-preview-item').forEach(item => {
+                item.classList.remove('active');
+                const icon = item.querySelector('.template-title i:last-child');
+                icon.className = 'fas fa-circle';
+                icon.style.color = '#ddd';
+            });
+            
+            // Add active class to selected template
+            const selectedTemplate = document.querySelector(`[data-template="${templateName}"]`);
+            if (selectedTemplate) {
+                selectedTemplate.classList.add('active');
+                const icon = selectedTemplate.querySelector('.template-title i:last-child');
+                icon.className = 'fas fa-check-circle';
+                icon.style.color = '#4CAF50';
+            }
+            
+            // Update the template selection in step 5 if it exists
+            const step5Templates = document.querySelectorAll('.template-option');
+            step5Templates.forEach(option => {
+                option.classList.remove('active');
+                if (option.dataset.template === templateName) {
+                    option.classList.add('active');
+                }
+            });
+            
+            // Store selected template
+            window.selectedTemplate = templateName;
+        }
+        
+        // Initialize default template
+        window.selectedTemplate = 'modern';
+        
+        // Update previews when form data changes
+        function updatePreviews() {
+            const formData = {
+                firstName: document.getElementById('firstName')?.value || 'John',
+                lastName: document.getElementById('lastName')?.value || 'Doe',
+                email: document.getElementById('email')?.value || 'john.doe@email.com',
+                phone: document.getElementById('phone')?.value || '(555) 123-4567',
+                location: document.getElementById('location')?.value || 'New York, NY',
+                summary: document.getElementById('summary')?.value || 'Experienced professional with expertise in relevant field and proven track record of success.'
+            };
+            
+            // Update modern template
+            updateModernPreview(formData);
+            // Update classic template
+            updateClassicPreview(formData);
+            // Update creative template
+            updateCreativePreview(formData);
+        }
+        
+        function updateModernPreview(data) {
+            const preview = document.getElementById('modern-preview');
+            if (preview) {
+                const name = preview.querySelector('.name');
+                const contact = preview.querySelector('.contact');
+                const summary = preview.querySelector('.section p');
+                
+                if (name) name.textContent = `${data.firstName} ${data.lastName}`;
+                if (contact) contact.textContent = `${data.email} • ${data.phone} • ${data.location}`;
+                if (summary) summary.textContent = data.summary;
+            }
+        }
+        
+        function updateClassicPreview(data) {
+            const preview = document.getElementById('classic-preview');
+            if (preview) {
+                const name = preview.querySelector('.name');
+                const contact = preview.querySelector('.contact');
+                const summary = preview.querySelector('.section p');
+                
+                if (name) name.textContent = `${data.firstName.toUpperCase()} ${data.lastName.toUpperCase()}`;
+                if (contact) contact.textContent = `${data.email} | ${data.phone} | ${data.location}`;
+                if (summary) summary.textContent = data.summary;
+            }
+        }
+        
+        function updateCreativePreview(data) {
+            const preview = document.getElementById('creative-preview');
+            if (preview) {
+                const sidebarName = preview.querySelector('.sidebar .name');
+                const mainName = preview.querySelector('.main-content .name');
+                const contact = preview.querySelector('.sidebar .section div');
+                const summary = preview.querySelector('.main-content .section p');
+                
+                if (sidebarName) sidebarName.textContent = `${data.firstName} ${data.lastName}`;
+                if (mainName) mainName.textContent = `${data.firstName} ${data.lastName}`;
+                if (summary) summary.textContent = data.summary;
+                
+                // Update contact info in sidebar
+                const contactDiv = preview.querySelector('.sidebar .section div');
+                if (contactDiv && contactDiv.innerHTML.includes('@')) {
+                    contactDiv.innerHTML = `${data.email}<br>${data.phone}<br>${data.location}`;
+                }
+            }
+        }
+        
+        // Add event listeners to form inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = ['firstName', 'lastName', 'email', 'phone', 'location', 'summary'];
+            inputs.forEach(inputId => {
+                const element = document.getElementById(inputId);
+                if (element) {
+                    element.addEventListener('input', updatePreviews);
+                }
+            });
+            
+            // Initialize previews
+            updatePreviews();
+        });
+        
+        // Enhanced template option click handler
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.template-option')) {
+                const templateOption = e.target.closest('.template-option');
+                const templateName = templateOption.dataset.template;
+                
+                // Remove active class from all template options
+                document.querySelectorAll('.template-option').forEach(option => {
+                    option.classList.remove('active');
+                });
+                
+                // Add active class to clicked option
+                templateOption.classList.add('active');
+                
+                // Update sidebar selection
+                selectTemplate(templateName);
+            }
+        });
+    </script>
+</body>
+</html>
