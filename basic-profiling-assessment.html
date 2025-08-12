@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start Free Assessment – Basic Profiling | SaarthiX</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="services.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        /* Minimal page-local styles for form layout */
+        .form-wrapper { max-width: 1000px; margin: 0 auto; }
+        .profiling-form { background: #fff; border-radius: 16px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label { font-weight: 600; color: #2c3e50; }
+        .form-group input, .form-group select, .form-group textarea { border: 1px solid #e3e6ea; border-radius: 10px; padding: 12px 14px; font-size: 14px; }
+        .form-group textarea { min-height: 110px; resize: vertical; }
+        .helper-text { font-size: 12px; color: #6c757d; }
+        .section-title { margin: 25px 0 10px; font-size: 1.15rem; font-weight: 700; color: #2c3e50; }
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: 12px 18px; }
+        .checkbox-group label { font-weight: 500; }
+        .submit-area { display: flex; gap: 12px; align-items: center; margin-top: 20px; }
+        .btn-primary { display:inline-flex; align-items:center; gap:10px; padding:12px 20px; background: linear-gradient(135deg,#667eea,#764ba2); color:#fff; border:none; border-radius:10px; font-weight:600; cursor:pointer; text-decoration:none; }
+        .btn-primary:disabled { opacity: .8; cursor: not-allowed; }
+        .btn-secondary-link { color:#667eea; text-decoration:none; font-weight:600; }
+        .required-asterisk { color: #dc3545; }
+        .success-box, .error-box { display:none; margin-top: 14px; padding: 12px 14px; border-radius: 8px; font-weight: 600; }
+        .success-box { background:#e6f4ea; color:#137333; }
+        .error-box { background:#fdecea; color:#b00020; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><a href="index.html">SaarthiX</a></div>
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Students</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-section">
+                        <h4>Free Services</h4>
+                        <a href="basic-profiling.html">Basic Profiling</a>
+                        <a href="resume-building-watermark.html">Resume Building with Watermark</a>
+                        <a href="career-counselling-ai.html">Career Counselling through AI</a>
+                        <a href="job-metrics.html">Basic Job Requirement by Industry Metric</a>
+                        <a href="demo-courses.html">Demo Courses Videos</a>
+                        <a href="mental-health-ai.html">Mental Health support through AI and chats</a>
+                        <a href="interview-questions.html">Interview Question Topic Wise</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Basic Services</h4>
+                        <a href="ai-profiling.html">AI Based Profiling & Interest Evaluation</a>
+                        <a href="ai-resume-building.html">AI Based Resume Building Without Watermark</a>
+                        <a href="career-counselling-ai-basic.html">Career Counselling through AI</a>
+                        <a href="job-requirement-basic.html">Basic Job Requirement with Pre-requisite</a>
+                        <a href="courses.html">Courses</a>
+                        <a href="mental-health-basic.html">Mental Health support with no addons</a>
+                        <a href="ai-interview-prep.html">AI Based interview preparation & Test</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Premium Services</h4>
+                        <a href="psychometric-test.html">Psychometric Test</a>
+                        <a href="resume-review-expert.html">Resume Review by industry expert</a>
+                        <a href="career-counselling-mentor.html">Career counselling through Mentor</a>
+                        <a href="job-requirement-premium.html">Job Requirement with Summarized Report/Plan</a>
+                        <a href="role-ready-training.html">Role Ready Training For Students</a>
+                        <a href="mental-health-mentor.html">Mentor for mental health support</a>
+                        <a href="interview-prep-video.html">Interview Preparation By Video Conferencing</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Independent Services</h4>
+                        <a href="psychometric-independent.html">Psychometric Test</a>
+                        <a href="communication-skills.html">Communication and Soft Skills</a>
+                        <a href="certification-courses.html">Certification Courses & Training</a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Institute</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-section">
+                        <h4>Free Services</h4>
+                        <a href="unpaid-internship.html">Unpaid Internship (20 Registrations)</a>
+                        <a href="recorded-trainings.html">Recorded Trainings</a>
+                        <a href="recorded-workshop.html">Recorded Workshop</a>
+                        <a href="recorded-sessions.html">Recorded Sessions</a>
+                        <a href="limited-alumni-data.html">Limited Alumni Data</a>
+                        <a href="recorded-counselling.html">Recorded Counselling Session</a>
+                        <a href="demo-document.html">Demo e-Document</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Economy Services</h4>
+                        <a href="internship-registrations.html">100 Internship Registrations</a>
+                        <a href="virtual-placement-drives.html">Virtual Placement Drives</a>
+                        <a href="one-day-training.html">1 Day Training</a>
+                        <a href="one-day-workshop.html">1 Day Workshop</a>
+                        <a href="virtual-expert-sessions.html">Virtual Expert Sessions</a>
+                        <a href="limited-contact-details.html">Limited Contact Details</a>
+                        <a href="online-counselling.html">Online Counselling Session</a>
+                        <a href="e-study-material.html">e-Study Material</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Prudent Services</h4>
+                        <a href="unlimited-registrations.html">Unlimited Registrations</a>
+                        <a href="offline-placement-drives.html">Offline Placement Drives</a>
+                        <a href="extended-training.html">10-15 day Training</a>
+                        <a href="multi-day-workshop.html">2-7 Days Workshop</a>
+                        <a href="offline-expert-session.html">Offline Expert Session</a>
+                        <a href="full-alumni-access.html">Full Alumni Access</a>
+                        <a href="offline-counselling-session.html">Offline Counselling Session</a>
+                        <a href="printed-materials.html">Printed Materials</a>
+                        <a href="collaboration-events.html">Conduct events in collaboration</a>
+                        <a href="role-ready-trainings-institute.html">Role Ready Trainings</a>
+                        <a href="on-demand-trainings.html">On-Demand Trainings</a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Industry</a>
+                <div class="dropdown-content">
+                    <div class="dropdown-section">
+                        <h4>Free Services</h4>
+                        <a href="limited-job-posting.html">Limited Job Posting (2)</a>
+                        <a href="resume-access.html">8 Resume/CV Access</a>
+                        <a href="ai-interview-glimpse.html">AI Glimpse of Interview Videos</a>
+                        <a href="hackathon-info.html">Info about Previous Hackathons</a>
+                        <a href="drive-glimpse.html">Some Video Glimpse of Drives</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Economy Services</h4>
+                        <a href="job-posting-economy.html">Job Posting (5)</a>
+                        <a href="database-access.html">Database Access</a>
+                        <a href="candidate-access-30.html">Valid for 30 Candidates</a>
+                        <a href="post-hackathon.html">Post a hackathon</a>
+                        <a href="direct-hiring.html">Direct Hiring and Placement</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <h4>Prudent Services</h4>
+                        <a href="job-posting-prudent.html">Job Posting (10)</a>
+                        <a href="resume-database-350.html">350 Resume Access Database</a>
+                        <a href="trainer-access.html">Direct access to trainers and mentors</a>
+                        <a href="candidate-access-50.html">Limit for 50 Candidate</a>
+                        <a href="institute-collaboration.html">Collaboration with Institute for fresher hiring</a>
+                        <a href="talent-building-collaboration.html">Collaboration for Special talent Building</a>
+                        <a href="role-ready-freshers.html">Role Ready Freshers</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="account-options">
+            <a href="#" class="cart-btn" id="cartBtn">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-text">Cart</span>
+                <span class="cart-count" id="cartCount">3</span>
+                <div class="cart-ripple"></div>
+            </a>
+            <a href="#" class="account-btn" id="accountBtn">
+                <i class="fas fa-user-circle"></i>
+                <span>Account</span>
+                <div class="account-dropdown">
+                    <div class="dropdown-item">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Wishlist</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <i class="fas fa-box"></i>
+                        <span>Orders</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="login-btn" id="loginBtn">
+                <div class="btn-content">
+                    <i class="fas fa-sign-in-alt login-icon"></i>
+                    <i class="fas fa-sign-out-alt logout-icon" style="display: none;"></i>
+                    <span class="btn-text">Login</span>
+                </div>
+                <div class="btn-bg"></div>
+                <div class="btn-particles">
+                    <span class="particle"></span>
+                    <span class="particle"></span>
+                    <span class="particle"></span>
+                    <span class="particle"></span>
+                </div>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="service-hero">
+        <div class="hero-background">
+            <div class="bg-gradient-overlay"></div>
+            <div class="bg-pattern"></div>
+        </div>
+        <div class="container">
+            <div class="service-hero-content">
+                <div class="service-badge">
+                    <span class="badge-icon">🆓</span>
+                    <span class="badge-text">Free Service</span>
+                </div>
+                <h1 class="service-title">Start Your Free Assessment</h1>
+                <p class="service-subtitle">Fill out the details below to help us create your basic profile and tailor recommendations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="service-content">
+        <div class="container form-wrapper">
+            <h2 class="section-header">Your Details</h2>
+            <form id="profilingForm" class="profiling-form" novalidate>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required-asterisk">*</span></label>
+                        <input id="fullName" name="fullName" type="text" placeholder="John Doe" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email <span class="required-asterisk">*</span></label>
+                        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone <span class="required-asterisk">*</span></label>
+                        <input id="phone" name="phone" type="tel" placeholder="10-digit number" pattern="^[0-9]{10}$" required />
+                        <span class="helper-text">Enter 10 digits without spaces or symbols</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="college">College / University <span class="required-asterisk">*</span></label>
+                        <input id="college" name="college" type="text" placeholder="Your college name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="stream">Stream <span class="required-asterisk">*</span></label>
+                        <select id="stream" name="stream" required>
+                            <option value="" disabled selected>Select stream</option>
+                            <option>Computer Science</option>
+                            <option>Information Technology</option>
+                            <option>Electronics</option>
+                            <option>Electrical</option>
+                            <option>Mechanical</option>
+                            <option>Civil</option>
+                            <option>Chemical</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="degree">Degree <span class="required-asterisk">*</span></label>
+                        <select id="degree" name="degree" required>
+                            <option value="" disabled selected>Select degree</option>
+                            <option>B.Tech</option>
+                            <option>B.E.</option>
+                            <option>B.Sc</option>
+                            <option>BCA</option>
+                            <option>M.Tech</option>
+                            <option>M.Sc</option>
+                            <option>MCA</option>
+                            <option>MBA</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="gradYear">Graduation Year <span class="required-asterisk">*</span></label>
+                        <input id="gradYear" name="gradYear" type="number" min="2000" max="2100" placeholder="2026" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="cgpa">CGPA (0-10) <span class="required-asterisk">*</span></label>
+                        <input id="cgpa" name="cgpa" type="number" min="0" max="10" step="0.01" placeholder="8.5" required />
+                    </div>
+                </div>
+
+                <div class="section-title">Areas of Interest <span class="required-asterisk">*</span></div>
+                <div class="checkbox-group" role="group" aria-labelledby="interests-label">
+                    <label><input type="checkbox" name="interests[]" value="Software Development" required /> Software Development</label>
+                    <label><input type="checkbox" name="interests[]" value="Data Science" /> Data Science</label>
+                    <label><input type="checkbox" name="interests[]" value="AI/ML" /> AI/ML</label>
+                    <label><input type="checkbox" name="interests[]" value="Cybersecurity" /> Cybersecurity</label>
+                    <label><input type="checkbox" name="interests[]" value="Cloud/DevOps" /> Cloud/DevOps</label>
+                    <label><input type="checkbox" name="interests[]" value="Product Management" /> Product Management</label>
+                    <label><input type="checkbox" name="interests[]" value="UI/UX" /> UI/UX</label>
+                    <label><input type="checkbox" name="interests[]" value="Other" /> Other</label>
+                </div>
+                <div class="form-group" style="margin-top:10px;">
+                    <label for="interestsText">Add details (comma separated) <span class="required-asterisk">*</span></label>
+                    <input id="interestsText" name="interestsText" type="text" placeholder="e.g., backend, android, fintech" required />
+                </div>
+
+                <div class="section-title">Projects <span class="required-asterisk">*</span></div>
+                <div class="form-group">
+                    <textarea id="projects" name="projects" placeholder="List your key projects, technologies used and outcomes" required></textarea>
+                </div>
+
+                <div class="section-title">Internships / Experience <span class="required-asterisk">*</span></div>
+                <div class="form-group">
+                    <textarea id="internships" name="internships" placeholder="Company, role, duration, responsibilities" required></textarea>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="skills">Skills (comma separated) <span class="required-asterisk">*</span></label>
+                        <input id="skills" name="skills" type="text" placeholder="Java, React, SQL, Docker" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn URL <span class="required-asterisk">*</span></label>
+                        <input id="linkedin" name="linkedin" type="url" placeholder="https://www.linkedin.com/in/username" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="github">GitHub URL <span class="required-asterisk">*</span></label>
+                        <input id="github" name="github" type="url" placeholder="https://github.com/username" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="resume">Resume Link (Drive/URL) <span class="required-asterisk">*</span></label>
+                        <input id="resume" name="resume" type="url" placeholder="https://drive.google.com/your-resume-link" required />
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="referredBy">Referred By / Source <span class="required-asterisk">*</span></label>
+                        <input id="referredBy" name="referredBy" type="text" placeholder="Friend, College, Social Media, etc." required />
+                    </div>
+                    <div class="form-group">
+                        <label for="extra">Anything else we should know? <span class="required-asterisk">*</span></label>
+                        <input id="extra" name="extra" type="text" placeholder="Goals, preferences, constraints" required />
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top:6px;">
+                    <label><input type="checkbox" id="consent" name="consent" required /> I confirm the information provided is accurate and I consent to be contacted for profiling.</label>
+                </div>
+
+                <div class="submit-area">
+                    <button id="submitBtn" type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Submit & Start Assessment
+                    </button>
+                    <a class="btn-secondary-link" href="basic-profiling.html"><i class="fas fa-arrow-left"></i> Back to Basic Profiling</a>
+                </div>
+                <div id="successBox" class="success-box"><i class="fas fa-check-circle"></i> Your details were submitted successfully!</div>
+                <div id="errorBox" class="error-box"><i class="fas fa-exclamation-circle"></i> There was an issue submitting the form. Please try again.</div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Replace with your deployed Google Apps Script Web App URL
+        // How to set up: Apps Script -> New Project -> connect to Google Sheet -> doPost(e) to append rows -> Deploy as Web App (Anyone with the link)
+        const GOOGLE_SCRIPT_URL = 'YOUR_APPS_SCRIPT_WEB_APP_URL';
+
+        const formEl = document.getElementById('profilingForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successBox = document.getElementById('successBox');
+        const errorBox = document.getElementById('errorBox');
+
+        function formToObject(form) {
+            const data = new FormData(form);
+            const obj = {};
+            data.forEach((value, key) => {
+                if (key.endsWith('[]')) { // collect arrays like interests[]
+                    const k = key.replace('[]', '');
+                    if (!obj[k]) obj[k] = [];
+                    obj[k].push(value);
+                } else if (obj[key]) {
+                    if (!Array.isArray(obj[key])) obj[key] = [obj[key]];
+                    obj[key].push(value);
+                } else {
+                    obj[key] = value;
+                }
+            });
+            return obj;
+        }
+
+        function validateInterests() {
+            const checks = document.querySelectorAll('input[name="interests[]"]');
+            return Array.from(checks).some(c => c.checked);
+        }
+
+        formEl.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            successBox.style.display = 'none';
+            errorBox.style.display = 'none';
+
+            if (!formEl.checkValidity() || !validateInterests()) {
+                errorBox.textContent = 'Please fill all required fields and select at least one interest.';
+                errorBox.style.display = 'block';
+                formEl.reportValidity();
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+            try {
+                const payload = formToObject(formEl);
+
+                // Prefer posting as FormData for Apps Script simplicity
+                const fd = new FormData();
+                Object.keys(payload).forEach(k => {
+                    const val = payload[k];
+                    if (Array.isArray(val)) {
+                        val.forEach(v => fd.append(k, v));
+                    } else {
+                        fd.append(k, val);
+                    }
+                });
+
+                // If GOOGLE_SCRIPT_URL is not set, simulate success
+                if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL') {
+                    await new Promise(r => setTimeout(r, 1200));
+                    successBox.style.display = 'block';
+                    formEl.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit & Start Assessment';
+                    return;
+                }
+
+                // Note: Many Apps Script setups require no-cors; we can't read the response in that case.
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: fd,
+                    // mode: 'no-cors' // uncomment if your Script does not enable CORS
+                });
+
+                successBox.style.display = 'block';
+                formEl.reset();
+            } catch (err) {
+                console.error(err);
+                errorBox.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit & Start Assessment';
+            }
+        });
+    </script>
+</body>
+</html>
